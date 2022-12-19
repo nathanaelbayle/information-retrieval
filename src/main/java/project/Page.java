@@ -1,7 +1,6 @@
 package project;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -10,73 +9,52 @@ import java.util.List;
  * @author Nathanaël Bayle
  */
 public class Page implements java.io.Serializable {
+    // Title of the page
     private String title;
-    private String text;
 
-    private String category;
+    // List of categories of the page
+    private List<String> category = new ArrayList<>();
 
-    private int date;
+    // List of ingredients in the page
+    private final List<String> ingredients = new ArrayList<>();
 
-    private List<String> mainIngredients = new ArrayList<>();
-
-    public Page(){
+    public Page() {
         this.title = "";
-        this.text = "";
     }
 
-    public Page(String title, String text) {
-        this.title = title;
-        this.text = text;
-    }
-
-    public void addIngredient(List<String> ingredients){
-        this.mainIngredients.addAll(ingredients);
-    }
-
-    public String getTitle(){
+    public String getTitle() {
         return this.title;
     }
 
-    public String getText(){
-        return this.text;
-    }
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title.toLowerCase();
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void addCategory(String category) {
+        this.category.add(category);
     }
 
-    public void setCategory(String category) {
-        this.category = category.toLowerCase();
+    public void addCategory(List<String> category) {
+        this.category.addAll(category);
     }
 
     public String getCategory() {
-        return this.category;
+        return String.join("\n", this.category);
+    }
+
+    public void addIngredient(List<String> ingredients) {
+        this.ingredients.addAll(ingredients);
     }
 
     public void addIngredient(String ingredient) {
-        this.mainIngredients.add(ingredient.toLowerCase());
+        this.ingredients.add(ingredient);
     }
 
-    public List<String> getMainIngredients() {
-        return this.mainIngredients;
-    }
-
-    public String getMainIngredientsAsString() {
-        return String.join(", ", this.mainIngredients);
-    }
-
-    public void setDate(int date) {
-        this.date = date;
-    }
-
-    public int getDate() {
-        return this.date;
+    public String getIngredients() {
+        return String.join(", ", this.ingredients);
     }
 
     public String toString() {
-        return this.title + "\t\t" + this.category + "\t\t"+ this.mainIngredients + "\n";
+        return this.title + "\t\t" + this.getCategory() + "\t\t" + this.getIngredients() + "\n";
     }
 }

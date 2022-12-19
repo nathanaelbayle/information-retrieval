@@ -33,21 +33,6 @@ public final class FileUtils {
         }
     }
 
-    /**
-     * Writes the given content to the given file
-     * @param fileName the name of the file to write to
-     * @param content the content to write
-     */
-    public static void writeToFile(String fileName, String content) {
-        try {
-            FileWriter writer = new FileWriter(fileName, true);
-            writer.write(content);
-            writer.close();
-        } catch (Exception e) {
-            //System.out.println("Error: " + e.getMessage());
-        }
-    }
-
     public static void writeToFile(String fileName, Page page) {
         try {
             FileWriter writer = new FileWriter(fileName, true);

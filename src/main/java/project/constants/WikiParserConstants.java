@@ -18,11 +18,11 @@ public final class WikiParserConstants {
     public static final String enWikiFile = "src/main/resources/enwiki-latest-pages-articles.xml";
 
     // Output Dir
-    public static final String dataDir = "datasets/data";
+    public static final String dataDir = "results/data";
 
     // Output files
-    public static final String dataXlsxFile = "data/data.xlsx";
+    public static final String dataXlsxFile = "results/data.xlsx";
 
     // Output files
-    public static final String dataBaseFile = "datasets/dataBase.txt";
+    public static final String dataBaseFile = "results/dataBase.txt";
 }
