@@ -56,12 +56,9 @@ public class SparkMain {
                     .load(args[0]);
             System.out.println("Data loaded");
 
-            // System.out.println("Counting the dataset size...");
-            // System.out.println("Size of the dataset: " + df.count());
-
             System.out.println("Parsing dataset...");
             Dataset<Row> parsedDf = df.select("title", "revision.text._VALUE");
-            parse(sc.parallelize(parsedDf.collectAsList()));
+            parse(parsedDf);
             System.out.println("Dataset parsed");
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage() + " " + e.getCause());
@@ -77,7 +74,7 @@ public class SparkMain {
      *
      * @param df the dataset to parse
      */
-    private static void parse(JavaRDD<Row> df) {
+    private static void parse(Dataset<Row> df) {
         // for each row in the dataset, parse the text and save it to the database
         df.foreach(row -> {
             Page p = new Page();

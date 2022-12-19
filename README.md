@@ -32,7 +32,7 @@ file:////datasets/en-wiki-pages-articles.xml
 
 Here an example of the <path-to-output-directory>
 ```shell
-file:////output
+/output
 ```
 
 ## Usage

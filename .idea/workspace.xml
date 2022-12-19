@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dd9e6c5-c2c6-46cd-ad5c-05a49578be86" name="Changes" comment="Add args parameter to output path location.">
+    <list default="true" id="8dd9e6c5-c2c6-46cd-ad5c-05a49578be86" name="Changes" comment="Clean code.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/constants/WikiParserConstants.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/spark/SparkMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/spark/SparkMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/utils/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/utils/FolderUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/utils/FolderUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +239,7 @@
       <workItem from="1670773060290" duration="8363000" />
       <workItem from="1670838845954" duration="2373000" />
       <workItem from="1671371557330" duration="3013000" />
-      <workItem from="1671465280335" duration="4894000" />
+      <workItem from="1671465280335" duration="5710000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1671465529044</created>
@@ -272,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671468433853</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Clean code.">
+      <created>1671470263077</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671470263077</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +305,8 @@
     <MESSAGE value="Refactor and clean code." />
     <MESSAGE value="Add args parameter to xml dump location." />
     <MESSAGE value="Add args parameter to output path location." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add args parameter to output path location." />
+    <MESSAGE value="Clean code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean code." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
