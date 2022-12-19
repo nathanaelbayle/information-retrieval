@@ -24,11 +24,6 @@ import static project.constants.WikiParserConstants.dataDir;
  */
 public class SparkMain {
 
-    /**
-     * Main method of the project.
-     *
-     * @param args
-     */
     public static void main(String[] args) {
 
         // configure spark
@@ -52,7 +47,7 @@ public class SparkMain {
             Dataset<Row> df = spark.read()
                     .format("xml")
                     .option("rowTag", "page")
-                    .load("file:////datasets/en-wiki-pages-articles.xml");
+                    .load(args[0]);
             System.out.println("Data loaded");
 
             System.out.println("Counting the dataset size...");
