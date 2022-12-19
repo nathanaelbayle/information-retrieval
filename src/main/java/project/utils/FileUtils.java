@@ -28,7 +28,7 @@ public final class FileUtils {
             try {
                 file.createNewFile();
             } catch (Exception e) {
-               // System.out.println("Error: " + e.getMessage());
+                System.out.println("Error: " + e.getMessage());
             }
         }
     }

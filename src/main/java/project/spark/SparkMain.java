@@ -6,7 +6,9 @@ import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import project.Page;
+import project.constants.WikiParserConstants;
 import project.utils.FileUtils;
+import project.utils.FolderUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,6 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static project.constants.WikiParserConstants.dataDir;
 
 /**
  * This class is the main class of the project.
@@ -24,7 +25,12 @@ import static project.constants.WikiParserConstants.dataDir;
  */
 public class SparkMain {
 
+    private static String dataDir = "";
+
     public static void main(String[] args) {
+
+        dataDir = args[1];
+        FolderUtils.createFolder(dataDir);
 
         // configure spark
         SparkConf sparkConf = new SparkConf()
@@ -50,8 +56,8 @@ public class SparkMain {
                     .load(args[0]);
             System.out.println("Data loaded");
 
-            System.out.println("Counting the dataset size...");
-            System.out.println("Size of the dataset: " + df.count());
+            // System.out.println("Counting the dataset size...");
+            // System.out.println("Size of the dataset: " + df.count());
 
 
             System.out.println("Parsing dataset...");
@@ -107,8 +113,6 @@ public class SparkMain {
             String fileName = dataDir + "/" + page.getTitle() + ".txt";
             FileUtils.createFile(fileName);
             FileUtils.writeToFile(fileName, page);
-
-            //buffer += page.getCategory() + "\t" + page.getTitle() + "\t" + page.getMainIngredients() + "\n";
         }
     }
 

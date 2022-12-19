@@ -12,16 +12,6 @@ import static project.constants.WikiParserConstants.dataDir;
 public final class FolderUtils {
 
     /**
-     * Creates the initial directory if it doesn't exist
-     */
-    public static void createFolder() {
-        File dir = new File(dataDir);
-        if (!dir.exists()) {
-            dir.mkdir();
-        }
-    }
-
-    /**
      * Creates the given folder if it doesn't exist
      * @param folderName the name of the folder to create
      */

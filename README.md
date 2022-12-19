@@ -12,15 +12,27 @@ This project includes the following features:
 ```shell
 docker run -it -p 12345:12345 -p 8088:8088 -p 8080:8080 -p 8042:8042 -p 8081:8081 -p 19888:19888 iisas/hadoop-spark-pig-hive:2.9.2 bash
 ```
-3. Run the provided jar file with the following command:
-
+3. Once the docker image is running, exec the maven command to build and package the project:
 ```shell
-spark-submit --master local --executor-memory 4g --packages com.databricks:spark-xml_2.12:0.15.0 --class project.spark.SparkMain information-retrival-project-1.0-SNAPSHOT.jar "<path-to-wikipedia-dump.xml>"
+mvn clean package
+```
+4. Copy the jar file to the docker image:
+```shell
+docker cp target/information-retrival-project-1.0-SNAPSHOT.jar <container_id>:/
+```
+5. Submit the jar file using spark-submit:
+```shell
+spark-submit --master local --executor-memory 4g --packages com.databricks:spark-xml_2.12:0.15.0 --class project.spark.SparkMain information-retrival-project-1.0-SNAPSHOT.jar "<path-to-wikipedia-dump.xml>" "<path-to-output-directory>"
 ```
 
-Here an example of the <<path-to-wikipedia-dump.xml>
+Here an example of the <path-to-wikipedia-dump.xml>
 ```shell
 file:////datasets/en-wiki-pages-articles.xml
+```
+
+Here an example of the <path-to-output-directory>
+```shell
+file:////output
 ```
 
 ## Usage
