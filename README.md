@@ -18,11 +18,11 @@ mvn clean package
 ```
 4. Copy the jar file to the docker image:
 ```shell
-docker cp target/information-retrival-project-1.0-SNAPSHOT.jar <container_id>:/
+docker cp target/information-retrival-project-1.0-SNAPSHOT.jar <container_id>:/information-retrival.jar
 ```
 5. Submit the jar file using spark-submit:
 ```shell
-spark-submit --master local --executor-memory 4g --packages com.databricks:spark-xml_2.12:0.15.0 --class project.spark.SparkMain information-retrival-project-1.0-SNAPSHOT.jar "<path-to-wikipedia-dump.xml>" "<path-to-output-directory>"
+spark-submit --master local --executor-memory 4g --packages com.databricks:spark-xml_2.12:0.15.0 --class project.spark.SparkMain information-retrival.jar "<path-to-wikipedia-dump.xml>" "<path-to-output-directory>"
 ```
 
 Here an example of the <path-to-wikipedia-dump.xml>

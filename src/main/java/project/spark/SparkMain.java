@@ -1,12 +1,12 @@
 package project.spark;
 
 import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import project.Page;
-import project.constants.WikiParserConstants;
 import project.utils.FileUtils;
 import project.utils.FolderUtils;
 
@@ -59,19 +59,15 @@ public class SparkMain {
             // System.out.println("Counting the dataset size...");
             // System.out.println("Size of the dataset: " + df.count());
 
-
             System.out.println("Parsing dataset...");
             Dataset<Row> parsedDf = df.select("title", "revision.text._VALUE");
-            parse(parsedDf);
+            parse(sc.parallelize(parsedDf.collectAsList()));
             System.out.println("Dataset parsed");
-
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage() + " " + e.getCause());
             e.printStackTrace();
         }
-
         System.out.println("Work done!");
-
         sc.close();
     }
 
@@ -81,7 +77,7 @@ public class SparkMain {
      *
      * @param df the dataset to parse
      */
-    private static void parse(Dataset<Row> df) {
+    private static void parse(JavaRDD<Row> df) {
         // for each row in the dataset, parse the text and save it to the database
         df.foreach(row -> {
             Page p = new Page();

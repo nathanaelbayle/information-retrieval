@@ -33,6 +33,11 @@ public final class FileUtils {
         }
     }
 
+    /**
+     * Writes the given text in the given file
+     * @param fileName the name of the file to write
+     * @param page the page to write
+     */
     public static void writeToFile(String fileName, Page page) {
         try {
             FileWriter writer = new FileWriter(fileName, true);
