@@ -44,14 +44,9 @@ Here an example of the <path-to-output-directory>
 docker cp <container_id>:/<path-to-output-directory> <path-to-local-output-directory>
 ```
 
-7. Run the Main class to index the data into Apache Lucene:
+7. Run the Main class to index the data into Apache Lucene and add the index directory and the output directory:
 ```shell
-java -cp information-retrival.jar project.lucene.Main <path-to-index-directory>
-```
-
-Here an example of the <path-to-index-directory>
-```shell
-results/index
+.\results\index\ .\results\output\ 
 ```
 
 ## Usage
