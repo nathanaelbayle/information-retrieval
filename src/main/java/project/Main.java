@@ -57,36 +57,30 @@ public class Main {
         Scanner in = new Scanner(System.in);
         String query = in.nextLine();
 
-        // create analyzer
-        StandardAnalyzer analyzer = new StandardAnalyzer();
-
-        // create directory reader
-        Directory directory = FSDirectory.open(Paths.get(indexDir));
-
-        System.out.println("Searching for '" + query.replace(", ", " AND ") + "'...");
         // search for the query
-        List<Document> docs = searchFiles("content", query, analyzer, directory);
+        List<Document> docs = searchIndex(query);
         docs.forEach(doc -> {
-            System.out.println(doc.get("title"));
+            System.out.println("Recipe found: " + doc.get("title") + " at URL: " + "https://en.wikipedia.org/wiki/" + doc.get("title").replace(" ", "_"));
         });
     }
 
-    public List<Document> searchFiles(String inField, String queryString, StandardAnalyzer analyzer, Directory directory) {
-        try {
-            Query query = new QueryParser(inField, analyzer).parse(queryString);
+    public static List<Document> searchIndex(String searchString) throws IOException, ParseException {
+        System.out.println("Searching for '" + searchString + "'");
 
-            IndexReader indexReader = DirectoryReader.open(directory);
-            IndexSearcher searcher = new IndexSearcher(indexReader);
+        Directory directory = FSDirectory.open(Paths.get(indexDir));
+        IndexReader indexReader = DirectoryReader.open(directory);
 
-            TopDocs topDocs = searcher.search(query, 10);
-            List<Document> documents = new ArrayList<>();
-            for (ScoreDoc scoreDoc : topDocs.scoreDocs) {
-                documents.add(searcher.doc(scoreDoc.doc));
-            }
-            return documents;
-        } catch (IOException | ParseException e) {
-            e.printStackTrace();
+        IndexSearcher indexSearcher = new IndexSearcher(indexReader);
+        StandardAnalyzer analyzer = new StandardAnalyzer();
+        QueryParser queryParser = new QueryParser("contents", analyzer);
+
+        Query query = queryParser.parse(searchString);
+
+        TopDocs topDocs = indexSearcher.search(query, 10);
+        List<Document> documents = new ArrayList<>();
+        for (ScoreDoc scoreDoc : topDocs.scoreDocs) {
+            documents.add(indexSearcher.doc(scoreDoc.doc));
         }
-        return null;
+        return documents;
     }
 }

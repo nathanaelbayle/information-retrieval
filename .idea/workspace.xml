@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dd9e6c5-c2c6-46cd-ad5c-05a49578be86" name="Changes" comment="Clean code.">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="8dd9e6c5-c2c6-46cd-ad5c-05a49578be86" name="Changes" comment="Update Readme.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dataBase.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/constants/LuceneConstants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/spark/SparkMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/spark/SparkMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/lucene/Indexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/lucene/Indexer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +241,7 @@
       <workItem from="1670838845954" duration="2373000" />
       <workItem from="1671371557330" duration="3013000" />
       <workItem from="1671465280335" duration="7884000" />
-      <workItem from="1671526822549" duration="414000" />
+      <workItem from="1671526822549" duration="3065000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1671465529044</created>
@@ -289,7 +285,21 @@
       <option name="project" value="LOCAL" />
       <updated>1671471104255</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add parameters for Main class.">
+      <created>1671527414949</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671527414949</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Update Readme.">
+      <created>1671527547883</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1671527547883</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,7 +329,9 @@
     <MESSAGE value="Add args parameter to xml dump location." />
     <MESSAGE value="Add args parameter to output path location." />
     <MESSAGE value="Clean code." />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean code." />
+    <MESSAGE value="Add parameters for Main class." />
+    <MESSAGE value="Update Readme." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Readme." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
