@@ -10,6 +10,7 @@ import project.Page;
 import project.utils.FileUtils;
 import project.utils.FolderUtils;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -176,6 +177,7 @@ public class SparkMain {
             text = text.replaceAll("'", "");
             text = text.replaceAll("''", "");
             text = text.replaceAll("\\?", "_");
+            text = Normalizer.normalize(text, Normalizer.Form.NFD);
         }
         return text.toLowerCase();
     }

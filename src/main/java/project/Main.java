@@ -22,15 +22,16 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    String indexDir = "C:\\Users\\Nath\\Desktop\\IR\\information-retrival-project\\data\\index";
-    String dataDir = "C:\\Users\\Nath\\Desktop\\IR\\information-retrival-project\\data\\data";
-    Indexer indexer;
+    static String indexDir;
+    static String dataDir;
+    static Indexer indexer;
 
     public static void main(String[] args) throws Exception {
-        // WikipediaParser.parse(new File("C:\\Users\\Nath\\Desktop\\IR\\information-retrival-project\\src\\main\\resources\\frwiki-latest-pages-articles.xml"));
 
         try {
             Main main = new Main();
+            indexDir = args[0];
+            dataDir = args[1];
             main.createIndex();
         } catch (IOException e) {
             e.printStackTrace();
